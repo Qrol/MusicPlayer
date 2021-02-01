@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/songsRVFragment">
+
+    <fragment
+        android:id="@+id/songsRVFragment"
+        android:name="com.example.musicplayer.songlist.SongsRVFragment"
+        android:label="SongsRVFragment"
+        tools:layout="@layout/songs_rv_fragment"
+        >
+        <action
+            android:id="@+id/action_songsRVFragment_to_songDetailsFragment"
+            app:destination="@id/songDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/songDetailsFragment"
+        android:name="com.example.musicplayer.songdetails.SongDetailsFragment"
+        android:label="SongDetailsFragment"
+        tools:layout="@layout/song_details_fragment"
+        >
+        <argument
+            android:name="songId"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_songDetailsFragment_self"
+            app:destination="@id/songDetailsFragment" />
+        <action
+            android:id="@+id/action_songDetailsFragment_to_songsRVFragment"
+            app:destination="@id/songsRVFragment" />
+    </fragment>
+</navigation>
